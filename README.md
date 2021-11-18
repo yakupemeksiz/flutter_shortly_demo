@@ -15,9 +15,9 @@ This is a demo project for Grisoft Software Company.
 * A couple of helper classes were created (Dimen and Shared).
 
 ## General Logic of the Project
-* When the user opened the app for the first time, welcome screen always being showed and after that a short tutorial view being showed.
-* If the user opens the app for the second time, tutorial view is not being showed.
-* In order to short a link, enter a valid link and press "Shorten It!" button. After a short time, the shortened link will be appear on the screen.
+* When the user opened the app for the first time, the welcome screen is always being showed and after that, a short tutorial view is showed.
+* If the user opens the app for the second time, the tutorial view is not being shown.
+* To short a link, enter a valid link and press the "Shorten It!" button. After a short time, the shortened link will appear on the screen.
 * You can add or delete shortened links easily.
 
 ## Used Packages (Flutter & Dart)
@@ -29,4 +29,4 @@ This is a demo project for Grisoft Software Company.
 - [Dio](https://pub.dev/packages/dio)
 
 ## Notes
-I would like to write some tests but in this time in order to write better and clean code as long as possible, I couldn't find enough time write test.
+I would like to write some tests but at this time to write better and clean code as long as possible, I couldn't find enough time to write a test.
