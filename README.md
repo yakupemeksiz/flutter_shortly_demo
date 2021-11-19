@@ -1,16 +1,32 @@
-# flutter_shortly_demo
+# Flutter Shortly Demo
 
-A new Flutter project.
+This is a demo project for Grisoft Software Company.
 
-## Getting Started
+## Summary of the Project
 
-This project is a starting point for a Flutter application.
+* This is a project that mainly uses GetX State Management and a customized MVC pattern.
+* The main focus is to provide good maintainability.
+* Supports routing logic.
+* This project supports a multi-language system. The whole user interface is interactive.
+* The theme system is implemented but not completed because the app's dark design is unknown.
+* This project uses a heavily customized strict linter to write better code.
+* A custom tool that made by myself use in internal projects to create Flutter-type MVC files easily (mvc_gen.dart).
+* Many widgets and views are separated.
+* A couple of helper classes were created (Dimen and Shared).
 
-A few resources to get you started if this is your first Flutter project:
+## General Logic of the Project
+* When the user opened the app for the first time, the welcome screen is always being showed and after that, a short tutorial view is showed.
+* If the user opens the app for the second time, the tutorial view is not being shown.
+* To short a link, enter a valid link and press the "Shorten It!" button. After a short time, the shortened link will appear on the screen.
+* You can add or delete shortened links easily.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Used Packages (Flutter & Dart)
+- [GetX](https://pub.dev/packages/get)
+- [Shared Preferences](https://pub.dev/packages/shared_preferences)
+- [Flutter Svg](https://pub.dev/packages/flutter_svg)
+- [Google Fonts](https://pub.dev/packages/google_fonts)
+- [Clipboard](https://pub.dev/packages/clipboard)
+- [Dio](https://pub.dev/packages/dio)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Notes
+I would like to write some tests but at this time to write better and clean code as long as possible, I couldn't find enough time to write a test.
