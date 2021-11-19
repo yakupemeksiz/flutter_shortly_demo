@@ -37,7 +37,7 @@ dependencies:
   dio: ^4.0.3
   shared_preferences: ^2.0.8
   flutter_svg: 0.23.0+1
-  introduction_screen: ^2.1.0
+
   google_fonts: ^2.1.0
   clipboard: ^0.1.3
 
