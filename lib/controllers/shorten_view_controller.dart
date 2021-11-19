@@ -67,6 +67,7 @@ class ShortenViewController extends GetxController {
   }
 
   Future getData(String data) async {
+    FocusManager.instance.primaryFocus?.unfocus();
     shortenResponse.clear();
     try {
       isLoading.value = true;
