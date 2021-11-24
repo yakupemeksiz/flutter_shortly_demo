@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constants/api_constants.dart';
@@ -7,6 +8,8 @@ import '../../constants/locale_key_constants.dart';
 import '../../constants/shared_prefs_constants.dart';
 import '../../services/pref_service.dart';
 import 'dimen.dart';
+
+part 'shared_functions.dart';
 
 final _assets = AssetConstants();
 final _localization = LocaleKeyConstants();

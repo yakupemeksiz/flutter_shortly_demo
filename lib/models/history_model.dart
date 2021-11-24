@@ -3,12 +3,10 @@ import 'dart:convert';
 class HistoryModel {
   final String lastUrl;
   final String shortenUrl;
-  final bool copied;
 
   HistoryModel({
     required this.lastUrl,
     required this.shortenUrl,
-    this.copied = false,
   });
 
   factory HistoryModel.fromJson(Map<String, dynamic> jsonData) {

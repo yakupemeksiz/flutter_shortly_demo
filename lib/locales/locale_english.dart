@@ -25,4 +25,5 @@ final Map<String, String> _en = {
   localization.copy: 'COPY',
   localization.copied: 'COPIED!',
   localization.yourLinkHistory: 'Your Link History',
+  localization.linkAlreadyAdded: 'Entered url is already added',
 };

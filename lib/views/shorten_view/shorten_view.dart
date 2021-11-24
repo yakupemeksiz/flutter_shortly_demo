@@ -52,27 +52,29 @@ class ShortenView extends GetView<ShortenViewController> {
                               itemCount: controller.historyList.length,
                               padding: EdgeInsets.zero,
                               itemBuilder: (BuildContext context, int index) {
-                                final RxBool copied = false.obs;
-
                                 return Obx(
                                   () => HistoryWidget(
-                                    text: copied.value
+                                    text: controller.isCopied(
+                                            controller.historyList[index])
                                         ? localization.copied.tr
                                         : localization.copy.tr,
-                                    primary: copied.value
+                                    primary: controller.copiedList
+                                            .where((item) =>
+                                                item.hashCode ==
+                                                controller.historyList[index]
+                                                    .hashCode)
+                                            .isNotEmpty
                                         ? colors.blueMagenta
                                         : colors.lightBlue,
                                     lastUrl:
                                         controller.historyList[index].lastUrl,
                                     shortenUrl: controller
                                         .historyList[index].shortenUrl,
-                                    onDeleted: () =>
-                                        controller.removeData(index),
-                                    onPressed: () {
-                                      controller.copyClipboard(index);
-
-                                      copied.value = true;
-                                    },
+                                    onDeleted: () => controller.removeData(
+                                        controller.historyList[index]),
+                                    onPressed: () => controller.copyClipboard(
+                                      controller.historyList[index],
+                                    ),
                                   ),
                                 );
                               },
@@ -157,7 +159,7 @@ class ShortenView extends GetView<ShortenViewController> {
                 ],
               ),
               Obx(
-                () => controller.isLoading.value
+                () => controller.isLoading
                     ? Align(
                         child: CircularProgressIndicator(
                           color: colors.lightBlue,

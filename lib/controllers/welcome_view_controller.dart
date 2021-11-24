@@ -6,10 +6,10 @@ import '../utils/helpers/shared.dart';
 class WelcomeViewController extends GetxController {
   void onPressed() {
     if (shared.getFirstLogin()) {
-      Get.offAndToNamed(AppRoutes.introductionView);
+      Get.offNamed(AppRoutes.introductionView);
       return;
     }
 
-    Get.offAndToNamed(AppRoutes.shortenView);
+    Get.offNamed(AppRoutes.shortenView);
   }
 }

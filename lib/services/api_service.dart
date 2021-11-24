@@ -6,7 +6,7 @@ import '../utils/helpers/shared.dart';
 
 class ApiService {
   static BaseOptions options = BaseOptions(
-    baseUrl: apiConstants.baseUrl,
+    baseUrl: apiConstants.apiUrl,
   );
   Dio dio = Dio(options);
 

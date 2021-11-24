@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 class ShortenModel {
+  final bool ok;
+  final Result result;
+
   ShortenModel({
     required this.ok,
     required this.result,
   });
-
-  final bool ok;
-  final Result result;
 
   factory ShortenModel.fromJson(Map<String, dynamic> json) => ShortenModel(
         ok: json['ok'],
@@ -21,6 +21,15 @@ class ShortenModel {
 }
 
 class Result {
+  final String code;
+  final String shortLink;
+  final String fullShortLink;
+  final String shortLink2;
+  final String fullShortLink2;
+  final String shareLink;
+  final String fullShareLink;
+  final String originalLink;
+
   Result({
     required this.code,
     required this.shortLink,
@@ -31,15 +40,6 @@ class Result {
     required this.fullShareLink,
     required this.originalLink,
   });
-
-  final String code;
-  final String shortLink;
-  final String fullShortLink;
-  final String shortLink2;
-  final String fullShortLink2;
-  final String shareLink;
-  final String fullShareLink;
-  final String originalLink;
 
   factory Result.fromJson(Map<String, dynamic> json) => Result(
         code: json['code'],

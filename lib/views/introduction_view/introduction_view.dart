@@ -53,7 +53,7 @@ class IntroductionView extends GetView<IntroductionViewController> {
                 ),
               ),
               TextButton(
-                onPressed: () => Get.offAndToNamed(AppRoutes.shortenView),
+                onPressed: () => Get.offNamed(AppRoutes.shortenView),
                 child: Text(
                   localization.skip.tr,
                   style: Get.theme.textTheme.bodyText2!.copyWith(fontSize: 18),

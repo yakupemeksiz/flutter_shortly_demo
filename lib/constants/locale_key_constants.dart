@@ -18,4 +18,5 @@ class LocaleKeyConstants {
   final String textFieldErrorHint = 'text-field-error-hint';
   final String notValidText = 'not-valid-text';
   final String yourLinkHistory = 'your-link-history';
+  final String linkAlreadyAdded = 'link-already-added';
 }
