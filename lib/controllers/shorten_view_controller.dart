@@ -38,8 +38,9 @@ class ShortenViewController extends GetxController {
     super.onInit();
   }
 
-  void onChanged(String value) {
-    _flag.value = value.isEmpty;
+  void onChanged([String? value]) {
+    _flag.value = value?.isEmpty ?? true;
+    update();
   }
 
   void validFunction() {
@@ -50,6 +51,7 @@ class ShortenViewController extends GetxController {
         .where((item) => item.lastUrl == _enteredUrl.value)
         .isNotEmpty) {
       showSnackbar(localization.linkAlreadyAdded.tr);
+      update();
       return;
     }
 
@@ -61,18 +63,21 @@ class ShortenViewController extends GetxController {
       ),
     )) {
       showSnackbar(localization.notValidText.tr);
+      update();
       return;
     }
 
     final isValid = Uri.tryParse(textFieldController.text)!.isAbsolute;
 
     if (isValid && _enteredUrl.isNotEmpty) {
+      update();
       getData(textFieldController.text);
 
       return;
     } else if (!isValid && _enteredUrl.isNotEmpty) {
       showSnackbar(localization.notValidText.tr);
     }
+    update();
   }
 
   Future getData(String data) async {
@@ -94,12 +99,18 @@ class ShortenViewController extends GetxController {
       final encodeData = HistoryModel.encode(historyList);
       await shared.setHistoryList(encodeData);
 
-      textFieldController.text = '';
+      clearText();
     } catch (e) {
       await Get.defaultDialog(title: 'Alert', middleText: e.toString());
     }
 
     _isLoading.value = false;
+    update();
+  }
+
+  void clearText() {
+    textFieldController.text = '';
+    onChanged();
   }
 
   Future<void> removeData(HistoryModel historyModel) async {
@@ -108,11 +119,13 @@ class ShortenViewController extends GetxController {
 
     final encodeData = HistoryModel.encode(historyList);
     await shared.setHistoryList(encodeData);
+    update();
   }
 
   Future<void> copyClipboard(HistoryModel historyModel) async {
     await FlutterClipboard.copy(historyModel.shortenUrl);
     copiedList.add(historyModel);
+    update();
   }
 
   bool isCopied(HistoryModel historyModel) {
