@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../models/history_model.dart';
 import '../utils/helpers/shared.dart';
 
 class SharedPrefService extends GetxService {
@@ -19,11 +20,12 @@ class SharedPrefService extends GetxService {
     await prefs.setBool(sharedKeys.firstLogin, newValue);
   }
 
-  String getHistoryList() {
-    return prefs.getString(sharedKeys.linkHistory) ?? '[]';
+  List<HistoryModel> getHistoryList() {
+    return HistoryModel.decode(prefs.getString(sharedKeys.linkHistory) ?? '[]');
   }
 
-  Future<void> setHistoryList(String newValue) async {
-    await prefs.setString(sharedKeys.linkHistory, newValue);
+  Future<void> setHistoryList(List<HistoryModel> newValue) async {
+    await prefs.setString(
+        sharedKeys.linkHistory, HistoryModel.encode(newValue));
   }
 }

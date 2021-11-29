@@ -19,7 +19,6 @@ class ShortenView extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       backgroundColor: colors.lightGray,
       body: GetBuilder<ShortenViewController>(
-        init: ShortenViewController(),
         builder: (controller) => SingleChildScrollView(
           reverse: true,
           child: SizedBox(
@@ -55,7 +54,7 @@ class ShortenView extends StatelessWidget {
                               padding: EdgeInsets.zero,
                               itemBuilder: (BuildContext context, int index) {
                                 return HistoryWidget(
-                                  text: controller.isCopied(
+                                  buttonText: controller.isCopied(
                                           controller.historyList[index])
                                       ? localization.copied.tr
                                       : localization.copy.tr,
@@ -90,7 +89,8 @@ class ShortenView extends StatelessWidget {
                           width: double.infinity,
                           height: dimen.heightFactor * 25,
                           color: colors.blueMagenta,
-                          child: SvgPicture.asset(assets.shapeSvg),
+                          child: SvgPicture.asset(assets.shapeSvg,
+                              alignment: Alignment.topRight),
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(

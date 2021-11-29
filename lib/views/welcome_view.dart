@@ -19,20 +19,19 @@ class WelcomeView extends GetView<WelcomeViewController> {
           ),
           child: Column(
             children: [
-              SizedBox(
-                width: dimen.width,
-              ),
               Padding(
                 padding: EdgeInsets.only(top: dimen.heightFactor),
                 child: SvgPicture.asset(assets.logoSvg),
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: dimen.heightFactor * 2,
-                  left: dimen.widthFactor * 10,
-                ),
-                child: SvgPicture.asset(
-                  assets.illustrationSvg,
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    top: dimen.heightFactor * 2,
+                    left: dimen.widthFactor * 10,
+                  ),
+                  child: SvgPicture.asset(
+                    assets.illustrationSvg,
+                  ),
                 ),
               ),
               Expanded(

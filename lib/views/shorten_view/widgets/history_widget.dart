@@ -11,12 +11,12 @@ class HistoryWidget extends StatelessWidget {
   final void Function()? onDeleted;
   final void Function()? onPressed;
   final Color? primary;
-  final String text;
+  final String buttonText;
   const HistoryWidget({
     Key? key,
     required this.lastUrl,
     required this.shortenUrl,
-    required this.text,
+    required this.buttonText,
     this.onDeleted,
     this.onPressed,
     this.primary,
@@ -85,7 +85,7 @@ class HistoryWidget extends StatelessWidget {
                   primary: primary,
                   padding:
                       EdgeInsets.symmetric(vertical: dimen.heightFactor * 1.2),
-                  text: text,
+                  text: buttonText,
                   onPressed: onPressed,
                 ),
               )

@@ -32,8 +32,7 @@ class ShortenViewController extends GetxController {
     copiedList = <HistoryModel>[].obs;
     textFieldController = TextEditingController();
 
-    final String sharedModelList = shared.getHistoryList();
-    historyList.value = HistoryModel.decode(sharedModelList);
+    historyList.value = shared.getHistoryList();
 
     super.onInit();
   }
@@ -88,24 +87,26 @@ class ShortenViewController extends GetxController {
       final jsonData = await ApiService().getData(data);
       _shortenResponse.add(ShortenModel.fromJson(jsonData));
 
-      historyList.insert(
-        0,
+      await addData(
         HistoryModel(
           lastUrl: textFieldController.text,
           shortenUrl: _shortenResponse[0].result.fullShortLink,
         ),
       );
-
-      final encodeData = HistoryModel.encode(historyList);
-      await shared.setHistoryList(encodeData);
-
-      clearText();
     } catch (e) {
       await Get.defaultDialog(title: 'Alert', middleText: e.toString());
     }
 
     _isLoading.value = false;
     update();
+  }
+
+  Future<void> addData(HistoryModel historyModel) async {
+    historyList.insert(0, historyModel);
+
+    await shared.setHistoryList(historyList);
+
+    clearText();
   }
 
   void clearText() {
@@ -117,8 +118,7 @@ class ShortenViewController extends GetxController {
     historyList.removeWhere((item) => item.hashCode == historyModel.hashCode);
     copiedList.removeWhere((item) => item.hashCode == historyModel.hashCode);
 
-    final encodeData = HistoryModel.encode(historyList);
-    await shared.setHistoryList(encodeData);
+    await shared.setHistoryList(historyList);
     update();
   }
 
