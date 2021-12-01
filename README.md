@@ -28,7 +28,5 @@ This is a demo project for Grisoft Software Company.
 - [Clipboard](https://pub.dev/packages/clipboard)
 - [Dio](https://pub.dev/packages/dio)
 
-## Notes
-I would like to write some tests but at this time to write better and clean code as long as possible, I couldn't find enough time to write a test.
 
 https://user-images.githubusercontent.com/33119880/142615847-3f1e5d1a-8a89-4c24-8757-05b0fe70185c.mp4
